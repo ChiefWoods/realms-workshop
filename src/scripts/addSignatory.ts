@@ -1,4 +1,8 @@
-import { SPL_GOVERNANCE, TOKEN_OWNER_RECORD_GOVERNANCE, WALLET } from "../constants";
+import {
+  SPL_GOVERNANCE,
+  TOKEN_OWNER_RECORD_GOVERNANCE,
+  WALLET,
+} from "../constants";
 import { getDraftProposalPubkey, sendTx } from "../helpers";
 
 const tokenOwnerRecord = TOKEN_OWNER_RECORD_GOVERNANCE;
@@ -9,7 +13,7 @@ const ix = await SPL_GOVERNANCE.addSignatoryInstruction(
   proposalAccount,
   tokenOwnerRecord,
   WALLET.publicKey,
-  WALLET.publicKey
-)
+  WALLET.publicKey,
+);
 
 await sendTx([ix]);

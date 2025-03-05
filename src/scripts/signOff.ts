@@ -1,5 +1,15 @@
-import { GOVERNANCE_PUBKEY, REALMS_PUBKEY, SPL_GOVERNANCE, TOKEN_OWNER_RECORD_GOVERNANCE, WALLET } from "../constants";
-import { getDraftProposalPubkey, getSignatoryRecordPubkey, sendTx } from "../helpers";
+import {
+  GOVERNANCE_PUBKEY,
+  REALMS_PUBKEY,
+  SPL_GOVERNANCE,
+  TOKEN_OWNER_RECORD_GOVERNANCE,
+  WALLET,
+} from "../constants";
+import {
+  getDraftProposalPubkey,
+  getSignatoryRecordPubkey,
+  sendTx,
+} from "../helpers";
 
 const tokenOwnerRecord = TOKEN_OWNER_RECORD_GOVERNANCE;
 const proposalAccount = await getDraftProposalPubkey(tokenOwnerRecord);
@@ -11,7 +21,7 @@ const ix = await SPL_GOVERNANCE.signOffProposalInstruction(
   proposalAccount,
   WALLET.publicKey,
   signatoryRecordAccount,
-  tokenOwnerRecord
-)
+  tokenOwnerRecord,
+);
 
 await sendTx([ix]);
