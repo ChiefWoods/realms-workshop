@@ -4,7 +4,9 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@types/bun": "latest"
+    "@solana/web3.js": "^1.98.0",
+    "@types/bun": "latest",
+    "governance-idl-sdk": "^0.0.4"
   },
   "peerDependencies": {
     "typescript": "^5"
