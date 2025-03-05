@@ -12,4 +12,8 @@ export async function getAllDraftProposalPubkey(tokenOwnerRecord: PublicKey) {
   return (await SPL_GOVERNANCE.getProposalsByTokenOwnerRecord(tokenOwnerRecord))
     .filter(proposal => proposal.state.draft !== undefined)[0].publicKey;
 }
+
+export async function getSignatoryRecordPubkey(proposalAccount: PublicKey) {
+  return (await SPL_GOVERNANCE.getSignatoryRecordsForProposal(proposalAccount))
+    .filter(sr => sr.signatory.toBase58() === WALLET.publicKey.toBase58())[0].publicKey;
 }
