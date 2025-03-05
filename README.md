@@ -54,12 +54,12 @@ cp .env.example .env.local
 
 ### Scripts
 
-Make sure a [Realm DAO](https://app.realms.today/realms?cluster=devnet) is created with the address in `DEV_WALLET` set as a council member and `DEV_WALLET` is funded with devnet SOL.
+Make sure a [Realm DAO](https://app.realms.today/realms?cluster=devnet) is created with the address in `DEV_WALLET` set as a council member and `DEV_WALLET` is funded with devnet SOL. `DEV_WALLET` should also have community tokens deposited to be able to vote in community proposals.
 
-Example of running an individual script:
+Example of creating a proposal to be voted by community:
 
 ```bash
-bun src/scripts/createProposal.ts "<PROPOSAL_NAME>" "<PROPOSAL_DESCRIPTION>"
+bun src/scripts/createProposal.ts "<PROPOSAL_NAME>" "<PROPOSAL_DESCRIPTION>" true
 ```
 
 Running the main script to create a proposal, add wallet as signatory and sign off in a single transaction:

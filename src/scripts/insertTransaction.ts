@@ -3,6 +3,7 @@ import {
   DAO_WALLET,
   GOVERNANCE_PUBKEY,
   SPL_GOVERNANCE,
+  TOKEN_OWNER_RECORD_COMMUNITY,
   TOKEN_OWNER_RECORD_GOVERNANCE,
   WALLET,
 } from "../constants";
@@ -16,7 +17,10 @@ const transferIx = SystemProgram.transfer({
   lamports: LAMPORTS_PER_SOL / 10000,
 });
 
-const tokenOwnerRecord = TOKEN_OWNER_RECORD_GOVERNANCE;
+const isCommunityProposal = process.argv[2] === "true";
+const tokenOwnerRecord = isCommunityProposal
+  ? TOKEN_OWNER_RECORD_COMMUNITY
+  : TOKEN_OWNER_RECORD_GOVERNANCE;
 const proposalAccount = await getDraftProposalPubkey(tokenOwnerRecord);
 
 const ix = await SPL_GOVERNANCE.insertTransactionInstruction(
