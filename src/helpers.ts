@@ -8,7 +8,7 @@ export async function sendTx(ixs: TransactionInstruction[]) {
   console.log('SUCCESS:', getExplorerLink('tx', sig, 'devnet'));
 }
 
-export async function getAllDraftProposalPubkey(tokenOwnerRecord: PublicKey) {
+export async function getDraftProposalPubkey(tokenOwnerRecord: PublicKey) {
   return (await SPL_GOVERNANCE.getProposalsByTokenOwnerRecord(tokenOwnerRecord))
     .filter(proposal => proposal.state.draft !== undefined)[0].publicKey;
 }

@@ -12,6 +12,8 @@ const REALMS = await SPL_GOVERNANCE.getRealmByPubkey(REALMS_PUBKEY);
 export const COUNCIL_MINT = REALMS.config.councilMint;
 export const COMMUNITY_MINT = REALMS.communityMint;
 
+export const DAO_WALLET = new PublicKey(process.env.DAO_WALLET!);
+
 export const GOVERNANCE_PUBKEY = (await SPL_GOVERNANCE.getGovernanceAccountsByRealm(REALMS_PUBKEY))[0].publicKey;
 
 const TOKEN_OWNER_RECORD_REALMS = (await SPL_GOVERNANCE.getTokenOwnerRecordsForOwner(WALLET.publicKey))
