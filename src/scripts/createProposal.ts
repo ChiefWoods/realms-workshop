@@ -1,4 +1,3 @@
-import { Transaction } from "@solana/web3.js";
 import { COUNCIL_MINT, GOVERNANCE_PUBKEY, REALMS_PUBKEY, SPL_GOVERNANCE, TOKEN_OWNER_RECORD_GOVERNANCE, WALLET } from "../constants";
 import { sendTx } from "../helpers";
 
@@ -19,5 +18,4 @@ const ix = await SPL_GOVERNANCE.createProposalInstruction(
   WALLET.publicKey
 );
 
-const tx = new Transaction().add(ix);
-await sendTx(tx);
+await sendTx([ix]);
