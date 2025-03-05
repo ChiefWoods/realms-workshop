@@ -4,6 +4,8 @@
   "type": "module",
   "private": true,
   "devDependencies": {
+    "@coral-xyz/anchor": "^0.30.1",
+    "@solana-developers/helpers": "2.7.0",
     "@solana/web3.js": "^1.98.0",
     "@types/bun": "latest",
     "governance-idl-sdk": "^0.0.4"
